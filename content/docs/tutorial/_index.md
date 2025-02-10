@@ -3,6 +3,6 @@ weight: 3
 title: "Tutorial"
 ---
 
-# Tutorial: Triggers
+# Tutorial
 
 TODO
