@@ -127,8 +127,6 @@ We train the model multiple times (n iterations), each with a different penaliza
 
 By default, the model will run 100 iterations. If ranking the rules isn’t important, set `alpha-num` to `1`.
 
-TODO: rename alpha to lambda
-
 ### Dtree - Decision Tree
 
 ```bash

@@ -13,7 +13,8 @@ The maintained code is [here](https://github.com/FilippoC/grex2).
 
 If you use this software, please cite the following work:
 
-```@inproceedings{herrera2024grex,
+```
+@inproceedings{herrera2024grex,
     title = "Sparse Logistic Regression with High-order Features for Automatic Grammar Rule Extraction from Treebanks",
     author = "Herrera, Santiago and Corro, Caio and Kahane, Sylvain",
     booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation",
@@ -21,4 +22,5 @@ If you use this software, please cite the following work:
     year = "2024",
     address = "Torino, Italia",
     url = "https://arxiv.org/abs/2403.17534",
-}```
+}
+```
