@@ -16,10 +16,10 @@ git submodule update
 Install Hugo
 
 - in macOS:
-```console
+```Linux
 apt install hugo 
 ```
-- in Linux:
+- in macOS:
 ```console
 brew install hugo
 ```
