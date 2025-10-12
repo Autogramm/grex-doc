@@ -1,9 +1,9 @@
 ---
 weight: 4
-title: "Contrastive Grammar"
+title: "Contrastive Analysis"
 ---
 
-# Example: Contrastive Grammar
+# Example: Contrastive Analysis
 
 It's possible to compare two languages given a target linguistic phenomenon. We call this a constrative grammar. We look for linguistic patterns that will predict one language over another, our sub-treebank over another, given a treebank that combined sentences of two different sources.
 
@@ -13,8 +13,7 @@ As an example, let's see the different between Romanian finite verbs and French 
 
 ```yaml
 scope: 'pattern { X[upos="VERB", VerbForm="Fin"] }'
-conclusion_meta:
-    Language: "Romanian"
+conclusion: meta.language=Romanian
 ```
 
 ## Features
@@ -62,4 +61,4 @@ python extract_rules_via_lasso.py \
 
 ## Results 
 
-TODO
+WIP 🚧

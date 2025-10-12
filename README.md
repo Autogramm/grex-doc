@@ -8,8 +8,8 @@ If you want to contribute to the documentation, you first need to clone the repo
 (which is a submodule). To this end, execute the following commands:
 
 ```console
-git clone git@github.com:FilippoC/grex2-doc.git
-cd grex2-doc
+git clone git@github.com:Autogramm/grex-doc.git
+cd grex-doc
 git submodule init
 git submodule update
 ```

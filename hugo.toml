@@ -1,4 +1,4 @@
 baseURL = 'https://grex.grew.fr/'
 languageCode = 'en-us'
-title = 'Grex'
+title = 'Grex 📐'
 theme = 'hugo-book'

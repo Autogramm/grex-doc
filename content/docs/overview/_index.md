@@ -7,15 +7,32 @@ title: "Getting started"
 
 ## Quick Overview
 
+Grex is a tool that extracts expressive, fine-grained grammar rules from treebanks. Designed for linguists and computational linguists, it is a versatile and robust analytical tool for studying and describing annotated corpora.
+
+There are three ways to interact with Grex:
+
+- CLI: command line tool
+- API (WIP 🚧)
+- Graphical Interface (WIP 🚧)
+
+Grex is coded in Python and uses the OCaml `grewpy` library.
+
 ## Installation
 
 Clone the project repository
 ```bash
-git clone https://github.com/FilippoC/grex2
+git clone https://github.com/Autogramm/grex
+cd grex
+```
+
+Create a virtual environment
+```bash
+python3 -m venv .venv
+source .venv/bin/active
 ```
 
 Install python packages
-```bash
+```pip
 pip install -r requirements.txt
 ```
 
@@ -31,24 +48,20 @@ If you get an error caused by Cython, try installing the python3-dev package.
 apt install python3-dev
 ```
 
-A missing dependency during Grew installation ? Install it manually:
+`distutils` missing?
+```bash
+pip install setuptools
+```
+
+A missing dependency during Grew installation? Install it manually:
 
 ```bash
 opam install dependency_missing
 ```
 
-grewpy_backend is well installed but not found ? Try:
+`grewpy_backend` is well installed but not in PATH? Try:
 
 ```bash
 echo ‘eval $(opam env)’ >> ~/.bashrc
 ```
-
-## Usage
-
-## A flexible tool
-
-Thanks to YAML format and Grew, Grex is a flexible tool. However, that means that it's necessary to learn Grew syntax. You can start [here](https://grew.fr/grew_match/help/) and then follow the Grew(-match) tutorial ([top-left corner](https://universal.grew.fr/))
-
-
-## Results
 

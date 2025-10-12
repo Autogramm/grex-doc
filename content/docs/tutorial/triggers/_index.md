@@ -5,45 +5,34 @@ title: "Triggers"
 
 # Tutorial: Triggers
 
-As we said, the triggers or predictors are filled by the selected ML model. However, the linguistic features included in the set of possible predictors are limited to a specific search space due to combinatorial or computational constraints.
+However, due to possible combinatorial or computational constraints, or simply because a more controlled extraction process is wanted, the linguistic features included in the set of possible predictors are limited to a specific search space.
 
-The selected search space is selected in the yaml file (see [Extraction]({{< ref "/docs/tutorial/extraction" >}} "Extraction"))
 
-## Search space
+The feature space is defined in the YAML file (see [Extraction]({{< ref "/docs/tutorial/extraction" >}} "Extraction"))
 
-For each node of the scope, node features within the following search space could be include or remove.
+## Feature space
+
+For each node in the scope, it is possible to decide whether to include or exclude the features of their linear and depedency context.
 
 ![search space](search_space.png)
 
-E.g. Given the following scope with two nodes binded (X and Y)
+E.g. Given the following scope with two nodes bound (N and A)
 
 ```grew
-X[upos=NOUN]; Y[upos=ADJ]; X-[amod]->Y
+N[upos=NOUN]; A[upos=ADJ]; N-[amod]->A
 ```
 
-For each of these nodes, we can add any feature encoded in the parent, previous, next, and the children nodes.
+For each of these nodes, we can add or exclude any feature encoded in the parent, previous, next, and the child nodes.
 
-To note:
-- A node can have several children, and we choose to encoded children's features are encoded as sets. Therefore, the inclusion of a children's feature should be interpreted as *there exists at least one child of X that has feature A*.
-- Features are not included twice. E.g. if the parent node of Y is already defined in the scope, it will be not added again.
+Note:
 
-**In practice, the selection of features within the search space are defined in the YAML file.**
+- It's essential to remove features that are already defined in the scope and conclusion. Otherwise, the classifier will exploit this leaked information to make predictions, leading to an uninformative prediction.
+- A node can have several children, and we choose to encode their features as sets. Therefore, the inclusion of a child's feature should be interpreted as existential statement: *there exists at least one child of X with feature A*.
+- Features are not included twice. For example, if the parent node of Y is already defined in the scope, it will not be added again.
+
+**In practice, the selection of features within the search space is made through the YAML file.**
 
 
-## But, How can you truly know which are the features?
+## Check the included features
 
-TODO
-
-## Degree
-
-Predictors could be formed by a unique feature or by a combination of features.
-
-A predictor could be:
-
-- A feature node
-    - e.g. X.parent.Number=Sing, for the parent of X has a the feature Number=Sing
-    - e.g. X.rel_shallow=nsubj, for X is a subject
-- A combination of features
-    - e.g. X.parent.Number=Sing;X.rel_shallow=nsubj
-
-The degree of the predictors is passed as an argument to Grex.
+The script `check_features.py` can be used to check the included features, helping to avoid any leaked information or undesirable features.

@@ -1,18 +1,18 @@
 ---
 weight: 1
-title: "Grammar Rules"
+title: "Fundamentals"
 math: katex
 ---
 
-# Tutorial: Grammar Rules
+# Tutorial: Fundamentals
 
-Before looking into Grex, we need to understand what it can be used for, that is, which are the grammar rules it can extract from treebanks? We first give a very brief overview of what syntactic dependencies are, and then we will formalize what Grex consider as a grammar rule.
+Before looking into Grex, we need to understand what it can be used for, that is, what are the grammar rules it can extract from treebanks? We first give a very brief overview of what syntactic dependencies are, and then we will formalise a grammar rule.
 
 ## Dependency Treebanks
 
-A treebank is a set of sentences associated with linguistic annotations in form of syntactic trees.
+A treebank is a set of sentences associated with linguistic annotations in the form of syntactic trees.
 
-There are two main tree families, **dependency trees** (left) and **constituency trees** (right):
+There are two main tree families of linguistic trees: **dependency trees** (left) and **constituency trees** (right):
 
 ![A dependency and a constituency tree](trees.png)
 
@@ -20,10 +20,10 @@ There are two main tree families, **dependency trees** (left) and **constituency
 
 
 Grex *currently* works with dependency trees and requires them to be encoded in the **conllu data format**.
-This format store data in a column structured text file where sentences are separated by (at least one) empty line.
-A sentence can contain meta-data which can be use by Grex (e.g. to indicate the origin of the sentence, the language, etc.).
+This format stores data in a column structured text file where sentences are separated by (at least one) empty line.
+A sentence may contain metadata which can be used by Grex (e.g. to indicate the origin of the sentence, the language, etc.).
 
-Here is an example of a treebank encoded in a conllu format containing two sentences:
+Below is an example of a treebank encoded in a conllu format containing two sentences:
 
 ```
 # sent_id = GUM_vlog_pizzeria-42
@@ -51,29 +51,25 @@ Here is an example of a treebank encoded in a conllu format containing two sente
 
 ```
 Lines starting with # are comments.
-However, when places right before a sentence, they can be used to define meta-data.
+However, when placed right before a sentence, they encode metadata.
 
-
-Grex does not make any assumption of how you store your data: you can have the full treebank in a single file, or split across different files.
-Note however that Grex uses [Grew](https://grew.fr/) as a backbone, which can be slow when reading very large files.
-We therefore recommend splitting very large treebank in several conllu files.
-
+Grex does not make any assumptions about how you store your data: you can have the full treebank in a single file, or split it across multiple files.
+Note, however, that Grex uses [Grew](https://grew.fr/) as a backbone, which can be slow when reading very large files.
+We therefore recommend splitting very large treebanks into several conllu files.
 
 ## Grammar Rule Definition
 
-We understand a grammar rule as conditional relations between corpus occurrences. 
-E.g. A linguistic question like *when are adjectives placed before the NOUN in French?* can be made operational to work with corpora as follows.
+A grammar rule defines a conditional relationship between three patterns. Since each pattern matches a specific set of occurrences in a corpus, the rule ultimately expresses a relationship between these sets of occurrences.
 
-Given all adjectives of nouns of the corpus (S for scope of the rule or sample space), we look for linguistic patterns or predictors (P) that favors the occurrences of pre-nominal adjectives (Q or conclusion) and we want to know to what extent they do it (α).
+E.g. A linguistic question like *when are adjectives placed before their noun in French?* can be operationalised and answered using a corpus as follows.
 
-We formalize and generalize this rule with a logical formula:
+Given all adjectives of nouns in a treebank (S for scope of the rule), we look for linguistic patterns or predictors (P) that favor the occurrence of pre-nominal adjectives (Q or conclusion), and we want to know to what extent this occurs (α) given a treebank.
 
+We formalise and generalise this rule with a logical formula:
 
 {{< katex >}}
     S\implies (P\overset{\alpha\,\%}{\implies} Q)
 {{< /katex >}}
-
-
 
 Or using [Grew patterns](https://universal.grew.fr/?custom=67a7be8bead7b):
 
@@ -83,16 +79,16 @@ P: X[NumType=Ord]
 Q: Y << X
 ```
 
-The rules can be interpreted in a probabilistic way (in a frequentist interpretation): it's more probable to have pre-nominal adjectives when they are ordinals adjectives.
+Pattern Q partitions the occurrences of S in two (Q or ¬Q). 
 
+The rules can be interpreted probabilistically (in a frequentist interpretation): it is more likely that pre-nominal adjectives will be used when the adjectives are ordinals.
 
-## Limitations
+## Current limitations
 
 ### One rule at the time
 
-Since rule extraction is implemented as a binary classification where the target variable Y can be either Q or ¬Q, it is not possible to interrogate two different, non-disjoint problems simultaneously. Every question must be converted into a binary answerable question. 
+Since rule extraction is implemented as a binary classification where the target variable *y* can take values either for Q or ¬Q, it is not possible to interrogate multiple variables (multiclass classification). Every question must be converted into a binary answerable question.
 
-E.g. TODO
+### Treebanks, yes! But what about other data?
 
-### Treebanks, yes; interlinear glosses (IGT)? 
-Grex does not accept IGT annotations unless they are encoded according to the conllu format. However, IGT annotations usually do not include syntactic relations or dependencies. In that case, only queries concerning linear ordering phenomena between tokens are accepted.
+Grex does not accept other types of data, like interlinear glosses (IGT) annotations, unless they are encoded according to the conllu format. However, IGT annotations usually do not include syntactic relations or dependencies. This means that it will not be possible to match occurrences based on their syntactic relations, but only on their order.
