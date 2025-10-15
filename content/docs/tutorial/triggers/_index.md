@@ -12,7 +12,7 @@ The feature space is defined in the YAML file (see [Extraction]({{< ref "/docs/t
 
 ## Feature space
 
-For each node in the scope, it is possible to decide whether to include or exclude the features of their linear and depedency context.
+For each node in the scope, it is possible to decide whether to include or exclude the features of their linear and dependency context.
 
 ![search space](search_space.png)
 

@@ -13,7 +13,7 @@ Three main choices:
 
 ## Grew pattern matching
 
-Thanks to Grew, it is possible to capture complex patterns. However, this requires an understanding of Grew syntax. You can start [here](https://grew.fr/grew_match/help/) and then follow the Grew(-match) tutorial ([top-left corner](https://universal.grew.fr/)).
+Thanks to Grew, it is possible to capture complex patterns. However, this requires an understanding of Grew syntax. You can start [here](https://grew.fr/grew_match/help/) and then follow the [Grew-match tutorial](https://universal.grew.fr/?tutorial=yes).
 
 ## YAML format
 
