@@ -7,21 +7,24 @@ type: docs
 
 Grex is a tool for automatic grammar rule extraction from treebanks using machine learning.
 
-It was conceived by Santiago Herrera, Caio Corro, Bruno Guillaume and Sylvain Kahane. A full description of the method can be found in the paper (the code is deprecated): https://arxiv.org/abs/2403.17534
+It was conceived by Santiago Herrera, Caio Corro, Bruno Guillaume and Sylvain Kahane. A full description of the method can be found in the paper (the code is deprecated): https://aclanthology.org/2024.lrec-main.1314/
 
 The maintained code is [here](https://github.com/Autogramm/grex).
 
 If you use this software, please cite the following work:
 
 ```
-@inproceedings{herrera2024grex,
+@inproceedings{herrera-etal-2024-sparse,
     title = "Sparse Logistic Regression with High-order Features for Automatic Grammar Rule Extraction from Treebanks",
     author = "Herrera, Santiago and Corro, Caio and Kahane, Sylvain",
-    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation",
+    editor = "Calzolari, Nicoletta and Kan, Min-Yen and Hoste, Veronique and Lenci, Alessandro and Sakti, Sakriani  and Xue, Nianwen",
+    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)",
     month = may,
     year = "2024",
     address = "Torino, Italia",
-    url = "https://arxiv.org/abs/2403.17534",
+    publisher = "ELRA and ICCL",
+    url = "https://aclanthology.org/2024.lrec-main.1314/",
+    pages = "15114--15125"
 }
 ```
 
