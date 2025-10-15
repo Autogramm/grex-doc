@@ -51,4 +51,4 @@ There are **two important aspects** to bear in mind:
 
 - Firstly, conclusions are defined with respect to the scope and the nodes declared in the conclusion must be present in the scope.
 
-- Conclusions partition the occurrences of the scope in two sets. In practice, they are implemented as a [Grew whether](https://grew.fr/doc/clustering/).
+- Conclusions partition the occurrences of the scope in two sets. In practice, they are implemented as a [Grew whether](https://grew.fr/doc/clustering#clustering-with-a-sub-request-whether).

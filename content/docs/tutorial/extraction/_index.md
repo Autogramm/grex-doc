@@ -15,7 +15,7 @@ First, get a treebank:
 
 The scope, the conclusion and the features are defined via a YAML file.
 
-The YAML format requires a strict use of tabs and quotation marks. For more information, see [the Wki page](https://en.wikipedia.org/wiki/YAML).
+The YAML format requires a strict use of tabs and quotation marks. For more information, see [the Wiki page](https://en.wikipedia.org/wiki/YAML).
 
 ###  Definition of your Scope and Conclusion
 
@@ -137,7 +137,7 @@ patterns=patterns.yaml
 
 Predictors can be built using a single feature or a combination of features.
 
-A predictor ca be:
+A predictor can be:
 
 - A feature node
     - e.g. X.parent.Number=Sing, parent of X has a the feature Number=Sing
